@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Semantic UI</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+ 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</head>
+<body style="background: #F6F6F6">
+<div class="ui inverted menu" style="position: sticky; top: 0; z-index: +1;">
+	<div class="ui container">
+	<a href="/" class="item"><i class="in flag"></i></a>
+	<a  href="/" class="item"><b>Home</b></a>
+	<a href="/about" class="item">About</a>
+	<a href="#" class="item">Hire Me</a>
+	<div class="right menu">
+		<%if(!user){%>
+		<a href="/" class="item"><b>Login</b></a>
+		<a href="/signup" class="item">Signup</a>
+		<%} else {%>
+		<div class="ui fluid category search">
+		<div class="ui icon input">
+		<form action="/search" method="POST">
+			<input class="prompt" type="text" size="25" name="search" placeholder="Username" required>
+		</form>
+		<i class="search icon"></i>
+	</div>
+  	<div class="results"></div>
+	</div>
+		<a href="/search" class="item">Search User</a>
+		<a href="/profile/<%=user.id%>" class="item"><b>Hii, <%=user.username%></b></a>
+		<a href="/start" class="ui primary button">Create Blog</a>
+		<a href="/logout" class="item">Logout</a>
+		<%}%>
+	</div>
+	</div>
+</div> 
+<div class="ui container" style="width:60%;">

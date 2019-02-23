@@ -1,0 +1,17 @@
+<%include partials/header%>
+<div class="ui inverted segment">
+<h2 align="center">Search profile!!</h2>
+<form class="ui inverted form" action="/search" method="POST">
+<div class="eight wide field">
+<label>Enter Username: </label>
+<input type="text" size="25" name="search" placeholder="Username" required>
+</div></br>
+<input class="ui small primary button" type="submit" value="Submit">
+</form>
+
+<form class="ui inverted form" action="/findall" method="GET">
+<input class="ui primary button" type="submit" value="Search All Users">
+</form>
+<br/>
+</div>
+<%include partials/footer%>

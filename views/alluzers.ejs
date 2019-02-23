@@ -1,0 +1,15 @@
+<%include partials/header%>
+<%=data%>
+<div class="ui container">
+<div class="ui segment">
+<div class="segment">
+<img src="<%=data[0].image%>" height=100px width=100px  style="border-radius:50px;"><br/>
+</div>
+<h3><%=usrid%></h3>
+<b>Name:&nbsp</b><%=data[0].name%><br/>
+<b>Home:&nbsp</b><%=data[0].home%><br/>
+<a href="profile/<%=data[0].ide%>" class="ui basic blue button">View Profile</a>
+</div>
+</div>
+</div>
+<%include partials/footer%>

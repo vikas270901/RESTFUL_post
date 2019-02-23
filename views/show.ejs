@@ -1,0 +1,32 @@
+<%include partials/header%>
+<%include partials/footer%>
+<div class="ui container">
+<div class="ui segment">
+<a href="/" class="ui basic button">Back</a>
+<div class="ui segment">
+<h2><%=data.pstname%></h2>
+<%=data.date.toDateString()%><br/><br/>
+<div class="segment">
+<img src="<%=data.image%>" height=600px width=1060px><br/>
+</div>
+<b>Description:&nbsp</b><%-data.description%><br/><br/>
+<a href="/edit/<%-data.id%>" class="ui basic blue button">EDIT POST</a>
+<form action="/delete/<%=data.pstname%>/<%=data.id%>?_method=DELETE" method="POST"><br/>
+<button class="ui basic red button">DELETE IT!</button>
+</form><br/>
+<form class="ui form" action="comnt/<%=data._id%>" method="POST">
+<div class="eight wide field">
+<input type="text" size="300" name="txt" placeholder="Add Comment">
+</div>
+<input type="hidden" name="author" value="<%=user.username%>">
+<input  class="ui mini basic green button" type="submit" value="comment">
+</form>
+<h4>All Comments:</h4><br/> 
+<%for(var i=data.comments.length-1;i>0;i--){%>
+<b><%=data.comments[i].author%>:</b> 
+<%=data.comments[i].text%><br/>
+<%}%>
+</div>
+</div>
+</div>
+<%include partials/footer%>

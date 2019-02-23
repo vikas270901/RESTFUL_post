@@ -1,0 +1,47 @@
+<%include partials/header%>
+edit profile form 
+<%=data2%>
+
+<div class="ui inverted segment">
+<h2 align="center">Edit Profile!!</h2>
+<form class="ui inverted form" action="/profile/<%=data2%>?_method=PUT" method="POST">
+<div class="two fields">
+<div class="eight wide field">
+<label>Full Name: </label>
+<input type="text" size="25" name="name" placeholder="First Name" value="<%=data[0].name%>" required>
+</div>
+<div class="eight wide field">
+<label>Gender: </label>
+<input type="text" size="13" name="gender" placeholder="Gender"  value="<%=data[0].gender%>" required>
+</div></div>
+<div class="two fields">
+<div class="eight wide field">
+<label>Profile Image (Enter image link): </label>
+<input type="text" name="image" placeholder="Image Link" value="<%=data[0].image%>" required>
+</div>
+<div class="eight wide field">
+<label>Work: </label>
+<input type="text" size="40" name="work" placeholder="Work" value="<%=data[0].work%>">
+</div></div>
+<div class="two fields">
+<div class="eight wide field">
+<label>Home Town: </label>
+<input type="text" size="150" name="home" placeholder="Home Town" value="<%=data[0].home%>">
+</div>
+<div class="eight wide field">
+<label>Contact (E-mail or Phone):</label>
+<input type="text" size="10" name="contact" placeholder="Contact" value="<%=data[0].contact%>">
+</div></div>
+<div class="eight wide field">
+<label>Date of Birth (dd/mm/yyyy): </label>
+<input type="text" size="11" name="dob" placeholder="Date of Birth" value="<%=data[0].dob%>">
+</div>
+<div class="eight wide field">
+<label>About (less than 1000 words): </label>
+<textarea type="text" size="1000" name="about" value="<%=data[0].about%>">
+</textarea></br></br>
+<input class="ui small primary button" type="submit" value="Submit">
+</form>
+<br/>
+</div>
+<%include partials/footer%>

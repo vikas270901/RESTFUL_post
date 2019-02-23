@@ -1,0 +1,55 @@
+<%include partials/header%>
+<%var counter=0;%>
+<%for(var i=data.length-1;i>=0;i--){counter++;%>
+<%if(counter>=15){break;}%>
+<div class="ui segment">
+<h2><%=data[i].pstname%></h2>
+<hr>
+&nbsp<%=data[i].description.substring(0, 50)%>...<br/><br/>
+<img src="<%=data[i].image%>" height=500px width=778px><br/>
+<b>Posted on:</b>&nbsp<%=data[i].date.toDateString()%><br/>
+<b>Likes: </b><%=data[i].likes%><br/>
+<b>Comments: </b><%=data[i].comments.length-1%><br/>
+<form action="/like/<%=data[i]._id%>" method="GET" >
+<h5><input type="submit" class="ui mini primary button" value="Like">
+</form>
+<a href="/view/<%=data[i]._id%>"class="ui mini primary button">View All Comments</a>
+<a href="/view/<%=data[i]._id%>"class="ui mini basic button">View More</a></h5>
+<div class="ui segment"><%var cnt=0;%>
+<%for(var k=data[i].comments.length-1;k>0;k--){cnt++;%>
+&nbsp&nbsp&nbsp&nbsp<b><%=data[i].comments[k].author%>:</b> 
+<%=data[i].comments[k].text%>
+<%if(cnt>=5){break;}%>
+<br/>
+<%}%>
+<br/>
+<form class="ui form" action="view/comnt/<%=data[i]._id%>" method="POST">
+<div class="two fields">
+<input type="hidden" name="author" value="<%=user.username%>">
+<div class="sixteen wide field">
+<input type="text" size="250" name="txt" placeholder="Add Comment">
+</div>
+<input  class="ui mini basic green button" type="submit" value="comment">
+</div>
+</form>
+</div>
+</div>
+<%}%>
+<a href="#" class="ui primary button">The End</a>
+</div>
+<div class="ui container" style="position:absolute;top:55px;border-radius:2px;width:19%;padding-left:10px;">
+<%var count=0;%>
+<h3 style="width:250px;" ><b>&nbspSUGGESTED USERS -></b></h3></br>
+<%for(var k=profiles.length-1;k>=0;k--){%>
+<%for(var l=alluser.length-1;l>=0;l--){%>
+<%if(profiles[k].ide == alluser[l].id){count++;%>
+<div style="border-bottom:0.2px solid #DCDCDC;">
+<a href="/profile/<%=profiles[k].ide%>">
+<img src="<%=profiles[k].image%>" height="40px" width="40px" style="border-radius:20px;" >
+<b><span style="font-size:15px;"><%=alluser[l].username%></span></b></a> </br>
+</div>
+<%}}if(count>=10){break;}}%></br>
+<a href="#"> view more...</a>
+<div>
+</body>
+</html>

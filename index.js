@@ -24,7 +24,7 @@ app.use(parser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 app.use(method("_method"));
 app.use(express.static('./'));
-mongo.connect("mongodb://localhost:27017/posty", { useNewUrlParser: true });
+mongo.connect("mongodb://localhost:27017/posty2", { useNewUrlParser: true });
 seedDB();
 var storage = multer.diskStorage({
 	destination: function(req, file, callback){

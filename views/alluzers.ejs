@@ -17,7 +17,7 @@
 		<a href="/" class="item"><b>Login</b></a>
 		<a href="/logout" class="item">Signup</a>
 		<%} else {%>
-		<a href="<%=user._id%>" class="item"><b>Hii, <%=user.username%></b></a>
+		<a href="profile/<%=user._id%>" class="item"><b>Hii, <%=user.username%></b></a>
 		<a href="/logout" class="item">Logout</a>
 		<%}%>
 	</div>
@@ -27,7 +27,6 @@
 <div class="ui container">
 <div class="ui segment">
 <div class="segment">
-<%=data%>
 <img src="http://www.musictruth.com/wp-content/uploads/2016/11/sunset.jpg" height=200px width=790px  style="border-radius:5px;z-index: 0;">	
 <img src="./uploads/<%=data[0].image%>" height=200px width=200px  style="position:absolute;top:15%;border-radius:100px;margin-left: 38%; z-index: +1;"><br/>
 </div>
@@ -44,7 +43,7 @@
 <a href="/proedit" class="ui mini basic blue button">EDIT YOUR PROFILE</a>
 </div>
 </div>
-<h3><%=ide%></h3>
+<h3></h3>
 <a href="profile/<%=data[0].ide%>/<%=data[0].uzername%>" class="ui basic blue button">View Posts</a>
 </div>
 </div>

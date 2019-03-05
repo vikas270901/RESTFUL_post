@@ -1,0 +1,29 @@
+<%include partials/header%>
+
+<div class="ui segment">
+<a href="/" class="ui basic button">Back</a>
+<h1>Create Your Post.</h1>
+<div class="ui segment">
+<form class="ui form" action="/land" enctype="multipart/form-data" method="POST">
+<div class="field">
+<input type="hidden" name="likes" value="0">
+<input type="hidden" name="pstname" value="<%=data%>">
+<div>
+<div class="field">
+<label>Enter Image: </label>
+<input type="file" name="avatar" accept="image/*" required>
+</div>
+<div class="field">
+<label>Write Name of Image: </label>
+<input type="text" name="imgname" placeholder="Name of Image">
+</div>
+<div class="field">
+<label>Write 'description' about your post: </label>
+<textarea name="description"></textarea>
+</label></br></br>
+<input type="submit" class="ui basic green button">
+</form>
+</div>
+</div>
+
+<%include partials/footer%>

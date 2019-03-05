@@ -1,0 +1,22 @@
+view/comnt/<%=data[i]._id%>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.h2').css("background", "orange");
+		var form = $('#commnt');
+		$('.commnt').click(function(){
+			$.ajax({
+				url: 'view/comnt/<%=data[i]._id%>',
+				type: 'post',
+				data: $("#commnt input").serialize(),
+
+				success: function(data){
+					$('.thedata').html(data);
+					console.log(data);
+				}
+			});
+		});
+	});
+</script>
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

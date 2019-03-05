@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Post</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+ 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</head>
+<body style="background: #F6F6F6">
+<div class="ui inverted menu" style="position: sticky; top: 0; z-index: +1;">
+	<div class="ui container">
+	<a href="/" class="item"><i class="in flag"></i></a>
+	<a  href="#" class="item"><b>Home</b></a>
+	<a href="#" class="item">About</a>
+	<a href="#" class="item">Hire Me</a>
+	<a href="#" class="item">Search User</a>
+	<div class="right menu">
+		<%if(!user){%>
+		<a href="/" class="item"><b>Login</b></a>
+		<a href="/signup" class="item">Signup</a>
+		<%} else {%>
+		<a href="/profile/<%=user.id%>" class="item"><b>Hii, <%=user.username%></b></a>
+		<a href="/start" class="ui primary button">Create Post</a>
+		<a href="/logout" class="item">Logout</a>
+		<%}%>
+	</div>
+	</div>
+</div> 
+<div class="ui container" style="width:60%;">
+
+<div class="ui inverted segment">
+<h2 align="center">profile!!</h2>
+<form class="ui inverted form" action="/profile/<%=data%>" enctype="multipart/form-data" method="POST">
+<div class="two fields">
+<div class="eight wide field">
+<label>Full Name: </label>
+<input type="hidden" name="ide" value="<%=data%>">
+<input type="hidden" name="uzername" value="<%=user.username%>" required>
+<input type="text" size="25" name="name" placeholder="First Name" required>
+</div>
+<div class="eight wide field">
+<label>Gender: </label>
+<input type="text" size="13" name="gender" placeholder="Gender" required>
+</div></div>
+<div class="two fields">
+<div class="eight wide field">
+<label>Profile Image (Select image): </label>
+<input type="file" name="image"  accept="image/*" required>
+</div>
+<div class="eight wide field">
+<label>Work: </label>
+<input type="text" size="40" name="work" placeholder="Work">
+</div></div>
+<div class="two fields">
+<div class="eight wide field">
+<label>Home Town: </label>
+<input type="text" size="150" name="home" placeholder="Home Town">
+</div>
+<div class="eight wide field">
+<label>Contact (E-mail or Phone):</label>
+<input type="text" size="10" name="contact" placeholder="Contact">
+</div></div>
+<div class="eight wide field">
+<label>Date of Birth (dd/mm/yyyy): </label>
+<input type="text" size="11" name="dob" placeholder="Date of Birth">
+</div>
+<div class="eight wide field">
+<label>About (less than 1000 words): </label>
+<textarea type="text" size="1000" name="about">
+</textarea></br></br>
+<input class="ui small primary button" type="submit" value="Submit">
+</form>
+<br/>
+</div>
+<%include partials/footer%>

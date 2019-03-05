@@ -1,0 +1,9 @@
+<%include partials/header%>
+<%=data%>
+<%for(var i=0;i<data.length;i++){%>
+<div class="ui container">
+<div class="ui segment">
+<a href="profile/<%=data[i].id%>/<%=data[i].username%>"><%=data[i].username%></a>
+<a href="profile/<%=data[i].id%>" class="ui mini primary button" >View Profile</a></div></div>
+<%}%>
+<%include partials/footer%>

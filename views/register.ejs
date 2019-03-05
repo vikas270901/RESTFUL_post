@@ -1,0 +1,22 @@
+
+<%include partials/header%>
+<div class="ui inverted segment">
+<h2 align="center">Signup Here!!</h2>
+<form class="ui inverted form" action="/signup" method="POST">
+<input type="hidden" name="status" value="0">
+<div class="two fields">
+<div class="eight wide field">
+<label>Username: </label>
+<input type="text" size="10" name="username" placeholder="Username" required>
+</div>
+<div class="eight wide field">
+<label>Password: </label>
+<input type="password" size="20" name="password" placeholder="Password" required><br/>
+</div>
+</div>
+<input class="ui small primary button" type="submit" value="SignUp">
+</form>
+<b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspor</b><br/>
+<a href="/login" class="ui primary button">Log-In </a>
+</div>
+<%include partials/footer%>

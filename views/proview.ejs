@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Semantic UI</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+ 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</head>
+<body style="background: #F6F6F6">
+<div class="ui inverted menu" style=" position: sticky; top: 0; z-index: +1;">
+	<div class="ui container">
+	<a href="/" class="item"><i class="in flag"></i></a>
+	<a  href="/" class="item"><b>Home</b></a>
+	<a href="/about" class="item">About</a>
+	<a href="/search" class="item">Search User</a>
+	<div class="right menu">
+		<%if(!user){%>
+		<a href="/" class="item"><b>Login</b></a>
+		<a href="/logout" class="item">Signup</a>
+		<%} else {%>
+		<a href="<%=user._id%>" class="item"><b>Hii, <%=user.username%></b></a>
+		<a href="/logout" class="item">Logout</a>
+		<%}%>
+	</div>
+	</div>
+</div> 
+<div class="ui container" style="width:60%;">
+<div class="ui container">
+<div class="ui segment">
+<div class="segment">
+<img src="http://www.musictruth.com/wp-content/uploads/2016/11/sunset.jpg" height=200px width=790px  style="border-radius:5px;z-index: 0;">	
+<img src="/uploads/<%=data[0].image%>" height=200px width=200px  style="position:absolute;top:15%;border-radius:100px;margin-left: 38%; z-index: +1;"><br/>
+</div>
+<h1>&nbsp</b><%=data[0].name%></h1>
+<table><tr>
+<td><b>Username:&nbsp</b></td><td><%=data[0].uzername%></td></tr>
+<td><b>Gender:&nbsp</b></td><td><%=data[0].gender%></td></tr>
+<td><b>Work:&nbsp</b></td><td><%=data[0].work%></td></tr>
+<td><b>Home:&nbsp</b></td><td><%=data[0].home%></td></tr>
+<td><b>Contact:&nbsp</b></td><td><%=data[0].contact%></td></tr>
+<td><b>Date of birth:&nbsp</b></td><td><%=data[0].dob%></td></tr>
+<td><b>About:&nbsp</b></td><td><%=data[0].about%></td></tr>
+</table>
+<a href="/proedit" class="ui mini basic blue button">EDIT YOUR PROFILE</a>
+</div>
+</div>
+<%var counter=0;%>
+<%for(var i=post.length-1;i>=0;i--){counter++;%>
+<%if(counter>=15){break;}%>
+<div class="ui segment" style="width:48%;overflow: hidden;float: left;margin: 5px;">
+<h3><%=post[i].pstname%></h3><hr>
+&nbsp<%=post[i].description.substring(0, 50)%>...<br/><br/>
+<img src="/<%=post[i].image%>" height=100px width=100px><br/>
+<b>Posted on:</b>&nbsp<%=post[i].date.toDateString()%><br/>
+<b>Likes: </b><%=post[i].likes%><br/>
+<h5>
+<a href="/view/<%=post[i]._id%>"class="ui mini primary button">View All Comments</a>
+<a href="/view/<%=post[i]._id%>"class="ui mini basic button">View More</a></h5>
+</div>
+<%}%>
+<%include partials/footer%>
